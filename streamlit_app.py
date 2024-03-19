@@ -191,6 +191,7 @@ XList = [
 y = 'count'
 
 resource_api = {
+    '2024': """1857bf6e-6d21-4ac1-a813-db80c5f71a93""",
     '2023': """a54b5938-af02-42af-999f-620c68f1cec1""",
     '2022': """a0c89c3e-72e7-4cbe-965a-efa16b3ecd5f""",
     '2021': """2f27e464-4910-46bf-817b-a9bac19f86f3""",
@@ -224,12 +225,15 @@ st.title('Fahrgastfrequenzen an der VBZ-Haltestelle Hardbrücke')
 tab1, tab2, tab3 = st.tabs(["Voraussagen", "Historische Daten", "Situationsplan"])
 
 with tab1:
-    st.markdown('''Die Anzahl der Fahrgäste an einer Haltestelle unterliegt bestimmten Regelmässigkeiten, auch in Zeiten einer Pandemie.
-                Die VBZ stellen die Fahrgastfrequenzen der Haltestelle Hardbrücke in Zürich offen zur Verfügung.
-                Wie viele Personen die Haltestelle, aus welcher Richtung betreten oder verlassen haben, lässt sich so detailliert nachvollziehen.
-                Mit Machine Learning können regelmässige Muster in den Daten erkannt und damit auch Prognosen für die Zukunft erstellt werden.
+    st.markdown('''Die Haltestelle Hardbrücke der [VBZ](https://www.stadt-zuerich.ch/vbz) wird jeden Tag von tausenden von Personen benutzt. 
+                Sie betreten und verlassen die Haltestelle zu Fuss, mit dem Bus oder dem Tram. 
+                Die Stadt Zürich stellt die Fahrgastfrequenzen der Haltestelle als [Open Data](https://data.stadt-zuerich.ch/dataset/vbz_frequenzen_hardbruecke) zur Verfügung. 
+                Wie viele Personen die Haltestelle, aus welcher Richtung betreten oder verlassen haben, lässt sich so detailliert nachvollziehen. 
+                Die Anzahl der Personen unterliegt dabei bestimmten Regelmässigkeiten. 
+                Mit Machine Learning können solche Muster in den Daten erkannt und damit auch Prognosen für die Zukunft erstellt werden. 
                 Sehen Sie hier die Prognosen eines Modells, das mit den Daten der Vorjahre trainiert wurde. 
                 Sofern die tatsächlichen Frequenzen zur Verfügung stehen, können sie direkt mit den Prognosen verglichen werden.
+                Im Tab "Historische Daten" können die Daten der vergangenen Jahre analysiert werden.
                 ''')
 
     # load model
@@ -245,7 +249,7 @@ with tab1:
     st.plotly_chart(fig)
 
 with tab2:
-    st.markdown('Analysieren Sie hier die Daten, mit denen der Prognosealgorithmus trainiert wurde')
+    st.markdown('''Hier können die historischen Fahrgastfrequenzen zusammengefasst analysiert werden. Über die Buttons kann ausgewählt werden, welche Daten angezeigt und wie die Anzahl Personen gruppiert und aggregiert werden soll.''')
     resource = st.radio('Jahr', resource_api.keys(), horizontal=True)
     time_group = st.radio('Zeitliche Gruppierung', freq_dict.keys(), horizontal=True)
     agg_value = st.radio('Aggregation', agg_dict.keys(), horizontal=True)
