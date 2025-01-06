@@ -1,4 +1,5 @@
 import pickle
+import zipfile
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -165,6 +166,19 @@ def update_plots_tab2(resource, time_group, agg_value):
     return plot_time_group(resource_api[resource], freq_dict[time_group], agg_dict[agg_value]), plot_name_group(resource_api[resource], agg_dict[agg_value])
 
 
+@st.cache_resource  # 👈 Add the caching decorator
+def load_model(filename_model):
+    """Loading zipped ML Model at given path"""
+
+    print("Loading model: ", filename_model)
+    with zipfile.ZipFile(filename_model, 'r') as zipf:
+        # read from zip
+        serialized_model = zipf.read('RandomForestRegressor.sav')
+        # deserialize model
+        loaded_model = pickle.loads(serialized_model)
+    return loaded_model
+
+
 # parameters
 names = {
     'Ost-Süd total': 0,
@@ -238,8 +252,8 @@ with tab1:
                 ''')
 
     # load model
-    filename_model = './models/RandomForestRegressor.sav'
-    regressor = pickle.load(open(filename_model, 'rb'))
+    filename_model = './models/RandomForestRegressor.zip'
+    regressor = load_model(filename_model) 
 
     day_input = st.date_input(
         "Wählen Sie einen Tag:",
