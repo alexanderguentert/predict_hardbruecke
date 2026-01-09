@@ -292,8 +292,8 @@ https://data.stadt-zuerich.ch/dataset/vbz_frequenzen_hardbruecke
 > * "VBZ", bezeichnet die Zähllinie mit den VBZ-Frequenzen. Es werden alle Persoenen erfasst, die von einem VBZ-Fahrzeug die VBZ-Haltestelle betreten bzw. die Haltestelle durch Einstieg in ein VBZ-Fahrzeug verlassen.
 
 Situation an West und Ostkante:""")
-    st.image('https://www.stadt-zuerich.ch/content/dam/web/de/politik-verwaltung/statistik-und-daten/open-government-data/bilder/datenkatalog/vbz/vbz_Situation_Westkante.PNG', caption='Westkante')
-    st.image('https://www.stadt-zuerich.ch/content/dam/web/de/politik-verwaltung/statistik-und-daten/open-government-data/bilder/datenkatalog/vbz/vbz_Situation_Ostkante.PNG', caption='Ostkante')
+    st.image('https://www.stadt-zuerich.ch/content/dam/web/de/politik-verwaltung/statistik-und-daten/open-government-data/bilder_nwa/datenkatalog/vbz/vbz_Situation_Westkante.PNG', caption='Westkante')
+    st.image('https://www.stadt-zuerich.ch/content/dam/web/de/politik-verwaltung/statistik-und-daten/open-government-data/bilder_nwa/datenkatalog/vbz/vbz_Situation_Ostkante.PNG', caption='Ostkante')
 st.markdown('''Erstellt durch: Alexander Güntert 
             ([Mastodon](https://mastodon.social/@gntert), [Bluesky](https://bsky.app/profile/gntert.bsky.social), [Linkedin](https://www.linkedin.com/in/alexander-g%C3%BCntert-3379071b6/))  
             Rohdaten- und Bildquelle: https://data.stadt-zuerich.ch/dataset/vbz_frequenzen_hardbruecke  
